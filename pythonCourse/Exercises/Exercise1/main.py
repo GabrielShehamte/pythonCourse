@@ -1,23 +1,8 @@
 import random
-def lower():
-    lower = input("Enter the lower bound: ")
-    return int(lower)
+import FreeSimpleGUI as FSG
 
-def upper():
-    upper = input ("Enter the upper bound: ")
-    return int(upper)
+lower = input("Enter the lower bound: ")
+upper = input ("Enter the upper bound: ")
+bound = random.randrange(lower, upper)
 
-
-
-def boundGenerator(lower, upper):
-    lower = lower
-    upper = upper + 1
-    bound = random.randrange(lower, upper)
-
-    return bound
-
-
-lower = lower()
-upper = upper()
-bound = boundGenerator(lower, upper)
-print(bound)
+print("the bound is: " + bound)
