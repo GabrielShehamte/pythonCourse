@@ -2,22 +2,20 @@ import functions
 import FreeSimpleGUI as FSG
 
 
-def show_landing_page():
-    landing_layout = [
-        [FSG.Text("Welcome to your To-Do List App!", font=("Helvetica", 24, "bold"), justification='center', pad=(20, 20))],
-        [FSG.Button("Start", size = (10,2), font = ("Helvetica", 16), button_color=("white", "#007BFF"), pad=(20, 20))]
-    ]
+# def show_landing_page():
+#     landing_layout = [
+#         [FSG.Text("Welcome to your To-Do List App!", font=("Helvetica", 24, "bold"), justification='center', pad=(20, 20))],
+#         [FSG.Button("Start", size = (10,2), font = ("Helvetica", 16), button_color=("white", "#007BFF"), pad=(20, 20))]
+#     ]
 
-    landing_window = FSG.Window("Welcome", landing_layout, element_justification="center", size = (400,200))
+#     landing_window = FSG.Window("Welcome", landing_layout, element_justification="center", size = (400,200))
     
-    while True:
-        event, _ = landing_window.read()
-        if event == FSG.WIN_CLOSED or event =="Start":
-            break
+#     while True:
+#         event, _ = landing_window.read()
+#         if event == FSG.WIN_CLOSED or event =="Start":
+#             break
         
-        landing_window.close()
-
-
+#         landing_window.close()
 
 
 
