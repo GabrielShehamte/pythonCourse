@@ -2,18 +2,37 @@ import functions
 import FreeSimpleGUI as FSG
 
 
-FSG.theme('DarkGrey9')
+def show_landing_page():
+    landing_layout = [
+        [FSG.Text("Welcome to your To-Do List App!", font=("Helvetica", 24, "bold"), justification='center', pad=(20, 20))],
+        [FSG.Button("Start", size = (10,2), font = ("Helvetica", 16), button_color=("white", "#007BFF"), pad=(20, 20))]
+    ]
 
-label = FSG.Text("Type in a To-Do")
-input_box = FSG.InputText(tooltip="Enter todo", key = 'todo')
-add_button = FSG.Button("Add")
+    landing_window = FSG.Window("Welcome", landing_layout, element_justification="center", size = (400,200))
+    
+    while True:
+        event, _ = landing_window.read()
+        if event == FSG.WIN_CLOSED or event =="Start":
+            break
+        
+        landing_window.close()
+
+
+
+
+
+FSG.theme('BluePurple')
+
+label = FSG.Text("Type in a To-Do", font=("Helvetica", 20, "bold"), pad=(10,10))
+input_box = FSG.InputText(tooltip="Enter todo", key = 'todo',font=("Helvetica, 14"), size=(35, 5))
+add_button = FSG.Button("Add", size=(10, 1), font=("Helvetica", 14), button_color=("white", "#8765f7"))
 
 list_box = FSG.Listbox(values=functions.get_todos(), key='todos',
                        enable_events=True, size=[45, 10])
 
-edit_button = FSG.Button("Edit")
-complete_button = FSG.Button("Complete")
-exit_button = FSG.Button("Exit")
+edit_button = FSG.Button("Edit", size=(10, 1), font=("Helvetica", 14), button_color=("white", "#8765f7") )
+complete_button = FSG.Button("Complete", size=(10, 1), font=("Helvetica", 14), button_color=("white", "#8765f7") )
+exit_button = FSG.Button("Exit", size=(10, 1), font=("Helvetica", 14), button_color=("white", "#8765f7") )
 
 window = FSG.Window("My To-Do App",
                     layout=[[label, input_box],[add_button], [list_box, edit_button], 
@@ -71,3 +90,7 @@ while True:
         # print()
     
 window.close()
+
+# if __name__ == "__main__":
+#     show_landing_page()
+    
