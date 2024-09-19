@@ -18,21 +18,23 @@ for index, todo in enumerate(todos):
     todo_text = todo.strip()
     checkbox = st.checkbox(todo, key =todo)
     if checkbox:
-        st.session_state.confirm_todo = todo_text
+        st.session_state.confirm_todo = (todo_text, index)
         st.warning(f"Please confirm you completed: {st.session_state.confirm_todo}")
         
         confirm = st.button("Confirm")
         cancel = st.button("Cancel")
         
         if (st.session_state.confirm_todo) and (confirm):
-            todos.remove(st.session_state.confirm_todo + "\n")
-            functions.write_todos()
+            todos.pop(st.session_state.confirm_todo[1])
+            # todos.remove(st.session_state.confirm_todo + "\n")
+            functions.write_todos(todos)
             
             st.session_state.confirm_todo = None
             st.experimental_rerun()
         
         if cancel:
-            del st.session_state[st.session_state.confirm_todo]
+            del st.session_state[st.session_state.confirm_todo[0]]
+            # del st.session_state[st.session_state.confirm_todo]
             st.session_state.confirm_todo = None
             st.experimental_rerun()
         
