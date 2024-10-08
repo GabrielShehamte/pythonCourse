@@ -89,7 +89,7 @@ proj_cols = st.columns(3)
 for i, project in enumerate(projects):
     with proj_cols[i]:
         st.write(f"{project['name']}")
-        st.image("images/" + f"{project['imageArea']}", width=200)
+        st.image("Images/" + f"{project['imageArea']}", width=200)
         st.button(project['button_text']) #Embed a website link into the button, might need an "a href"
         
         
