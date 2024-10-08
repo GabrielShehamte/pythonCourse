@@ -71,7 +71,7 @@ tools = [
 for i, tool in enumerate(tools):
     with cols[i]:
         st.write(f"### {tool['name']}")
-        st.image("images/" + f"{tool['imageArea']}")
+        st.image("Images/" + f"{tool['imageArea']}")
         st.button(tool['button_text'])
         
         
